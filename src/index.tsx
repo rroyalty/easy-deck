@@ -4,18 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { messaging } from './firebase';
+import Firebase from './firebase'
+
+const FirebaseContext = React.createContext<any|null>(null); 
+
+const testFirebase = new Firebase();
+
+console.log(testFirebase)
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <FirebaseContext.Provider value={new Firebase()}>
+      <App />
+    </FirebaseContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-messaging.onMessage(payload => {
-  console.log(payload);
-})
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

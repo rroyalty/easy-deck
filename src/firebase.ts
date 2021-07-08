@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import app from 'firebase/app';
 
 interface IConfig {
   apiKey: string,
@@ -22,11 +22,10 @@ const config: IConfig = {
   measurementId: "G-C6V50QVCT4"
 };
 
-firebase.initializeApp(config);
+class Firebase {
+  constructor() {
+    app.initializeApp(config);
+  }
+}
 
-export default firebase;
-
-export const database = firebase.database();
-export const auth = firebase.auth();
-export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-export const messaging = firebase.messaging();
+export default Firebase;
