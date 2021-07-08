@@ -6,11 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import Firebase from './firebase'
 
-const FirebaseContext = React.createContext<any|null>(null); 
-
-const testFirebase = new Firebase();
-
-console.log(testFirebase)
+const FirebaseContext = React.createContext<object|null>(null); 
 
 ReactDOM.render(
   <React.StrictMode>
